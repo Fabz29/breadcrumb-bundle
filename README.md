@@ -22,7 +22,7 @@ Installation
 parameters:
     fabz29_breadcrumb:
         template: 'default/_breadcrumb.html.twig'
-        home_route_name: 'Accueil'
+        home_route_name: 'Home'
         home_route: 'homepage'
         home_route_params: {}
 ```
@@ -51,7 +51,7 @@ twig:
 <ol class="breadcrumb">
     {% for link in breadcrumb_manager.getBreadcrumb.links %}
     <li class="breadcrumb-item">
-        <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|raw }}</a>
+        <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
     </li>
     <li class="breadcrumb-item active">
         Project
