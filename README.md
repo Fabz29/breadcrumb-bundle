@@ -5,7 +5,7 @@ Installation
 ------------
 
 ####Step 1 : 
-* require "fabz29/breadcrumb-bundle"
+* require fabz29/breadcrumb-bundle
 
 #### Step 2 : Add the bundle to your AppKernel.php
 
