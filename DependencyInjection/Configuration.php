@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
             children()->
                 scalarNode("template")->defaultValue("Fabz29BreadcrumbBundle::Breadcrumb:render.html.twig")->end()->
                 scalarNode("home_route_name")->defaultValue("Accueil")->end()->
-                scalarNode("home_route")->defaultValue("app_frontend_homepage")->end()->
+                scalarNode("home_route")->defaultValue("homepage")->end()->
                 arrayNode("home_route_params")->beforeNormalization()->castToArray()->end()->
             end();
 
