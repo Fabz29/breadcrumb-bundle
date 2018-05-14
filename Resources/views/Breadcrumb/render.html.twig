@@ -1,8 +1,9 @@
-{% if breadcrumb_manager.getBreadcrumb is not null or breadcrumb is defined %}
+{% set breadcrumb = breadcrumb_manager.getBreadcrumb %}
+{% if breadcrumb is not null %}
     <ul>
         {% foreach link in breadcrumb.links %}
         <li>
-            <a href="{{ path(link.route, { link.routeParams }) }}">{{ link.name|raw }}</a>
+            <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
         </li>
         {% endfor %}
     </ul>
