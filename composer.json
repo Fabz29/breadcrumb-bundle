@@ -14,7 +14,7 @@
     "symfony/templating": "^2.7 || ^3.0",
     "paragonie/random_compat": "^1 || ^2"
   },
-  "license": "proprietary software",
+  "license": "proprietary",
   "author": [
     {
       "name": "Fabien Zanetti",
