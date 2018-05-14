@@ -33,7 +33,7 @@ class BreadcrumbManager
     private $homeRoute;
 
     /**
-     * @var mixed
+     * @var array
      */
     private $homeRouteParams;
 
@@ -45,9 +45,9 @@ class BreadcrumbManager
     /**
      * BreadcrumbManager constructor.
      * @param TwigEnvironment $twig
-     * @param array $params
+     * @param array|null $params
      */
-    public function __construct(TwigEnvironment $twig, array $params)
+    public function __construct(TwigEnvironment $twig, ?array $params)
     {
         $this->template = $params['template'];
         $this->homeRouteName = $params['home_route_name'];
@@ -61,7 +61,7 @@ class BreadcrumbManager
     /**
      * Add the homepage route
      */
-    public function loadBreadcrumb()
+    public function loadBreadcrumb(): void
     {
         $this->addItem($this->homeRouteName, $this->homeRoute, $this->homeRouteParams);
     }
@@ -69,18 +69,18 @@ class BreadcrumbManager
     /**
      * @return Breadcrumb
      */
-    public function getBreadcrumb()
+    public function getBreadcrumb(): Breadcrumb
     {
         return $this->breadcrumb;
     }
 
     /**
-     * @param $name
-     * @param null $route
-     * @param array $routeParams
+     * @param string $name
+     * @param null|string $route
+     * @param array|null $routeParams
      * @return Breadcrumb
      */
-    public function addItem($name, $route = null, $routeParams = array())
+    public function addItem(string $name, ?string$route, ?array $routeParams): Breadcrumb
     {
         $this->breadcrumb->addLink($name, $route, $routeParams);
 
@@ -88,9 +88,9 @@ class BreadcrumbManager
     }
 
     /**
-     * @return mixed|string
+     * @return string
      */
-    public function getTemplate()
+    public function getTemplate():  string
     {
         return $this->template;
     }
@@ -98,7 +98,7 @@ class BreadcrumbManager
     /**
      *
      */
-    public function clear()
+    public function clear(): void
     {
         $this->breadcrumb->clear();
     }
@@ -106,8 +106,8 @@ class BreadcrumbManager
     /**
      * @return Response
      */
-    public function display()
+    public function display(): Response
     {
-        return $this->twig->render($this->template, array('breadcrumb', $this->breadcrumb));
+        return $this->twig->render($this->template, ['breadcrumb', $this->breadcrumb]);
     }
 }

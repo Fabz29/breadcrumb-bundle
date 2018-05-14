@@ -17,16 +17,16 @@ class Fabz29BreadcrumbExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('fabz29_breadcrumb', $config);
         $container->setParameter('fabz29_breadcrumb.template', $config['template']);
-        $container->setParameter('fabz29_breadcrumb.home_route_name', $config['home_route_name']);
-        $container->setParameter('fabz29_breadcrumb.home_route', $config['home_route']);
-        $container->setParameter('fabz29_breadcrumb.home_route_params', $config['home_route_params']);
+        $container->setParameter('fabz29_breadcrumb.home_route_name',  $config['home_route_name']);
+        $container->setParameter('fabz29_breadcrumb.home_route',  $config['home_route']);
+        $container->setParameter('fabz29_breadcrumb.home_route_params',  $config['home_route_params']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

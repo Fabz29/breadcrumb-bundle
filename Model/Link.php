@@ -35,7 +35,7 @@ class Link
      *
      * @return Link
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -59,7 +59,7 @@ class Link
      *
      * @return Link
      */
-    public function setKeyName($keyName)
+    public function setKeyName(string $keyName): self
     {
         $this->keyName = $keyName;
 
@@ -71,7 +71,7 @@ class Link
      *
      * @return string
      */
-    public function getKeyName()
+    public function getKeyName(): string
     {
         return $this->keyName;
     }
@@ -83,7 +83,7 @@ class Link
      *
      * @return Link
      */
-    public function setRoute($route)
+    public function setRoute(string $route): self
     {
         $this->route = $route;
 
@@ -95,7 +95,7 @@ class Link
      *
      * @return string
      */
-    public function getRoute()
+    public function getRoute(): string
     {
         return $this->route;
     }
@@ -107,7 +107,7 @@ class Link
      *
      * @return Link
      */
-    public function setRouteParams($routeParams = null)
+    public function setRouteParams(?array $routeParams): self
     {
         $this->routeParams = $routeParams;
 
@@ -119,7 +119,7 @@ class Link
      *
      * @return array|null
      */
-    public function getRouteParams()
+    public function getRouteParams(): ?array
     {
         return $this->routeParams;
     }

@@ -15,12 +15,13 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('fabz29_breadcrumb');
 
         $rootNode->
+
             children()->
                 scalarNode("template")->defaultValue("Fabz29BreadcrumbBundle::Breadcrumb:render.html.twig")->end()->
                 scalarNode("home_route_name")->defaultValue("Accueil")->end()->

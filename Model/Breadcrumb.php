@@ -2,8 +2,6 @@
 
 namespace Fabz29\BreadcrumbBundle\Model;
 
-use Fabz29\BreadcrumbBundle\Model\Link;
-
 /**
  * Class Breadcrumb
  * @package Fabz29\BreadcrumbBundle\Model
@@ -26,15 +24,18 @@ class Breadcrumb
     /**
      * @return array
      */
-    public function getLinks()
+    public function getLinks(): array
     {
         return $this->links;
     }
 
     /**
+     * @param string $name
+     * @param null|string $route
+     * @param array|null $routeParams
      * @return array
      */
-    public function addLink($name, $route = null, $routeParams = array())
+    public function addLink(string $name, ?string $route, ?array $routeParams): array
     {
         $link = new Link();
         $link->setName($name);
@@ -48,10 +49,10 @@ class Breadcrumb
     /**
      * @return Breadcrumb
      */
-    public function clear()
+    public function clear(): Breadcrumb
     {
         unset($this->links);
-        $this->links = array();
+        $this->links = [];
 
         return $this;
     }

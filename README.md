@@ -10,62 +10,54 @@ Installation
 #### Step 2 : Add the bundle to your AppKernel.php
 
 ``` php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-  $bundles = array(
-    // ...
-        new Fabz29\BreadcrumbBundle\Fabz29BreadcrumbBundle(),
-  );
-}
+// config/bundles.php
+    ...
+    Fabz29\BreadcrumbBundle\Fabz29BreadcrumbBundle::class => ['all' => true],
 ```
 
 #### Step 3 : Configure the bundle
 
 ``` yaml
-// app/config/parameters.yml
+// config/packages/fabz29_breadcrumb.yaml
 parameters:
     fabz29_breadcrumb:
-        template: 'Front/Includes/breadcrumb.html.twig'
+        template: 'default/_breadcrumb.html.twig'
         home_route_name: 'Accueil'
-        home_route: 'app_main_homepage'
+        home_route: 'homepage'
         home_route_params: {}
 ```
-
-``` yaml
-// app/config/services.yml
-imports:
-    - { resource: "@Fabz29BreadcrumbBundle/Resources/config/services.yml" }
-```
-
 #### Step 4 : Enable manager in Twig
 
 ``` yaml
-// app/config/config.yml
+// config/packages/twig.yaml
 twig:
     globals:
         breadcrumb_manager: '@fabz29_breadcrumb.breadcrumb.manager'
 ```
 
 ``` yaml
-// app/config/services.yml
-imports:
-    - { resource: "@Fabz29BreadcrumbBundle/Resources/config/services.yml" }
+// config/services.yaml
+    # explicitly configure the service
+    Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager:
+        arguments:
+            $params: '%fabz29_breadcrumb%'
 ```
 
 #### Step 5 [RECOMMENDED|OPTIONAL] : Overide the template
 
 ``` twig 
 // Path/To/Your/TwigTemplate
-{% if breadcrumb_manager.getBreadcrumb is not null or breadcrumb is defined %}
-    <ul>
-        {% foreach link in breadcrumb.links %}
-        <li>
-            <a href="{{ path(link.route, { link.routeParams }) }}">{{ link.name|raw }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+{% if breadcrumb_manager.getBreadcrumb is not null %}
+<ol class="breadcrumb">
+    {% for link in breadcrumb_manager.getBreadcrumb.links %}
+    <li class="breadcrumb-item">
+        <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|raw }}</a>
+    </li>
+    <li class="breadcrumb-item active">
+        Project
+    </li>
+    {% endfor %}
+</ol>
 {% endif %}
 ```
 
@@ -74,13 +66,16 @@ How to use it
 
 - in your controller : 
     ``` php
-        // if you have already configure the home link in your parameters you just need to add some next item
-        $breadcrumbManager = $this->get('fabz29_breadcrumb.breadcrumb.manager');
-        
-        // your next items
+    
+    #Add use
+    use Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager;
+
+    public function index(ProjectRepository $projectRepository, BreadcrumbManager $breadcrumbManager): Response
+    {
         $breadcrumbManager->addItem('yourLinkName', 'your_route_name', array('yourKeyRouteParam' => 'yourValueRouteParam');
         $breadcrumbManager->addItem(...);
-        
+        // your next items
+      
         // you don't need to give the breadcrumb in your twig template
     ```
     
@@ -93,7 +88,6 @@ How to use it
 
 ## TODO
 - Add some tests
-- Enable the installation by composer
 
 ## License
 

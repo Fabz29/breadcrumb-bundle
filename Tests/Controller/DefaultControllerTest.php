@@ -4,9 +4,13 @@ namespace Fabz29\BreadcrumbBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class DefaultControllerTest
+ * @package Fabz29\BreadcrumbBundle\Tests\Controller
+ */
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testIndex(): void
     {
         $client = static::createClient();
 
