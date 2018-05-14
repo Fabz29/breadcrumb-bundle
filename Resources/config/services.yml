@@ -1,0 +1,4 @@
+services:
+    fabz29_breadcrumb.breadcrumb.manager:
+        class: Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager
+        arguments: ['@twig', '%lwb_breadcrumb%']

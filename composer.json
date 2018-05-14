@@ -1,0 +1,39 @@
+{
+  "name": "Fabz29/breadcrumbBundle",
+  "type": "symfony-bundle",
+  "description": "Fabz29BreadcrumbBundle is a Symfony Bundle created to facilitate the management of breadcrumbs in your project.",
+  "keywords": [
+    "Fabz29 breadcrumb"
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/framework-bundle": "2.3.*|^2.6.0|^3.0|^4.0"
+  },
+  "require-dev": {
+    "twig/twig": "^1.15|^2.0",
+    "phpunit/phpunit": "4.*"
+  },
+  "suggest": {
+    "twig/twig": "to render breadcrumbs with a twig template"
+  },
+  "license": "proprietary software",
+  "author": [
+    {
+      "name": "Fabien Zanetti",
+      "email": "fabienzanetti57@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FOS\\UserBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Lwb\\BreadcrumbBundle\\Tests\\": "/Tests/"
+    }
+  }
+}
