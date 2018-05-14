@@ -25,7 +25,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "FOS\\UserBundle\\": ""
+      "Fabz29\\BreadcrumbBundle\\": ""
     },
     "exclude-from-classmap": [
       "/Tests/"
@@ -33,7 +33,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Lwb\\BreadcrumbBundle\\Tests\\": "/Tests/"
+      "Fabz29\\BreadcrumbBundle\\Tests\\": "/Tests/"
     }
   }
 }
