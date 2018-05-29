@@ -19,46 +19,23 @@ Installation
 
 ``` yaml
 // config/packages/fabz29_breadcrumb.yaml
-parameters:
-    fabz29_breadcrumb:
-        template: 'default/_breadcrumb.html.twig'
-        home_route_name: 'Home'
-        home_route: 'homepage'
-        home_route_params: {}
+fabz29_breadcrumb:
+    template: 'default/_breadcrumb.html.twig'
+    home_route_name: 'Home'
+    home_route: 'homepage'
+    home_route_params: []
 ```
-#### Step 4 : Enable manager in Twig
-
-``` yaml
-// config/packages/twig.yaml
-twig:
-    globals:
-        breadcrumb_manager: '@fabz29_breadcrumb.breadcrumb.manager'
-```
-
-``` yaml
-// config/services.yaml
-    # explicitly configure the service
-    Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager:
-        arguments:
-            $params: '%fabz29_breadcrumb%'
-```
-
-#### Step 5 [RECOMMENDED|OPTIONAL] : Overide the template
+#### Step 4 [RECOMMENDED|OPTIONAL] : Overide the template
 
 ``` twig 
-// Path/To/Your/TwigTemplate
-{% if breadcrumb_manager.getBreadcrumb is not null %}
-<ol class="breadcrumb">
-    {% for link in breadcrumb_manager.getBreadcrumb.links %}
+<ol class="breadcrumb hide-phone p-0 m-0">
+    {% for link in breadcrumb.links %}
     <li class="breadcrumb-item">
         <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
     </li>
-    <li class="breadcrumb-item active">
-        Project
-    </li>
     {% endfor %}
 </ol>
-{% endif %}
+
 ```
 
 How to use it
@@ -66,24 +43,13 @@ How to use it
 
 - in your controller : 
     ``` php
-    
-    #Add use
-    use Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager;
-
-    public function index(ProjectRepository $projectRepository, BreadcrumbManager $breadcrumbManager): Response
-    {
-        $breadcrumbManager->addItem('yourLinkName', 'your_route_name', array('yourKeyRouteParam' => 'yourValueRouteParam');
-        $breadcrumbManager->addItem(...);
-        // your next items
-      
-        // you don't need to give the breadcrumb in your twig template
+        $breadcrumb = $this->get("fabz29_breadcrumb.breadcrumb.manager");
+        $breadcrumb->addItem('Settings', 'user_settings');
     ```
     
 - in your twig template where the fuc* you want : 
     ``` twig
-       
-        // render the breadcrumb if you give the breadcrumb object
-        {% include breadcrumb_manager.template %}
+        {{ fabz29_render_breadcrumb() }}
     ```
 
 ## TODO
@@ -91,5 +57,5 @@ How to use it
 
 ## License
 
-The bundle is developped by Fabien ZANETTI and can be used only by himself. 
-Copyright Fabz29. All Rights reserved
+The bundle is developped by Fabien ZANETTI.
+Licence MIT

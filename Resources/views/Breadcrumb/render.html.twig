@@ -1,10 +1,7 @@
-{% set breadcrumb = breadcrumb_manager.getBreadcrumb %}
-{% if breadcrumb is not null %}
-    <ul>
-        {% foreach link in breadcrumb.links %}
+<ul>
+    {% for link in breadcrumb.links %}
         <li>
             <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
         </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    {% endfor %}
+</ul>

@@ -77,10 +77,10 @@ class BreadcrumbManager
     /**
      * @param string $name
      * @param null|string $route
-     * @param array|null $routeParams
+     * @param null|array $routeParams
      * @return Breadcrumb
      */
-    public function addItem(string $name, ?string$route, ?array $routeParams): Breadcrumb
+    public function addItem(string $name, ?string $route = null, ?array $routeParams = array()): Breadcrumb
     {
         $this->breadcrumb->addLink($name, $route, $routeParams);
 
@@ -104,10 +104,10 @@ class BreadcrumbManager
     }
 
     /**
-     * @return Response
+     * @return string
      */
-    public function display(): Response
+    public function display(): string
     {
-        return $this->twig->render($this->template, ['breadcrumb', $this->breadcrumb]);
+        return $this->twig->render($this->template, ['breadcrumb' => $this->breadcrumb]);
     }
 }

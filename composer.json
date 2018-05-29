@@ -16,7 +16,7 @@
   "suggest": {
     "twig/twig": "to render breadcrumbs with a twig template"
   },
-  "license": "proprietary",
+  "license": "MIT",
   "author": [
     {
       "name": "Fabien Zanetti",

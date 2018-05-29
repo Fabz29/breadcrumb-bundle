@@ -1,4 +1,13 @@
 services:
+
     fabz29_breadcrumb.breadcrumb.manager:
+        public: true
         class: Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager
         arguments: ['@twig', '%fabz29_breadcrumb%']
+
+    fabz29_breadcrumb.twig:
+        class: Fabz29\BreadcrumbBundle\Twig\BreadcrumbExtension
+        public: true
+        arguments: ['@fabz29_breadcrumb.breadcrumb.manager']
+        tags:
+            name: twig.extension
