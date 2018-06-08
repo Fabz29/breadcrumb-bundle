@@ -5,6 +5,8 @@ services:
         class: Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager
         arguments: ['@twig', '%fabz29_breadcrumb%']
 
+    Fabz29\BreadcrumbBundle\Manager\BreadcrumbManager: '@fabz29_breadcrumb.breadcrumb.manager'
+
     fabz29_breadcrumb.twig:
         class: Fabz29\BreadcrumbBundle\Twig\BreadcrumbExtension
         public: true
