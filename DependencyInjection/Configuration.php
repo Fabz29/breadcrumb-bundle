@@ -22,12 +22,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode->
 
-            children()->
-                scalarNode("template")->defaultValue("Fabz29BreadcrumbBundle::Breadcrumb/render.html.twig")->end()->
-                scalarNode("home_route_name")->defaultValue("Home")->end()->
-                scalarNode("home_route")->defaultValue("homepage")->end()->
-                arrayNode("home_route_params")->prototype('scalar')->end()->
-            end();
+        children()->
+        scalarNode("template")->defaultValue("Fabz29BreadcrumbBundle::Breadcrumb/render.html.twig")->end()->
+        scalarNode("home_route_name")->end()->
+        scalarNode("home_route")->end()->
+        arrayNode("home_route_params")->end()->
+        end();
 
         return $treeBuilder;
     }

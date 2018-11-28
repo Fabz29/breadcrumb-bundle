@@ -50,9 +50,9 @@ class BreadcrumbManager
     public function __construct(TwigEnvironment $twig, ?array $params)
     {
         $this->template = $params['template'];
-        $this->homeRouteName = isset($params['home_route_name']) ?? $params['home_route_name'];
-        $this->homeRoute = isset($params['home_route']) ?? $params['home_route'];
-        $this->homeRouteParams = isset($params['home_route_params']) ?? $params['home_route_params'];
+        $this->homeRouteName = isset($params['home_route_name']) ? $params['home_route_name'] : null;
+        $this->homeRoute = isset($params['home_route']) ? $params['home_route'] : null;
+        $this->homeRouteParams = isset($params['home_route_params']) ? $params['home_route_params'] : null;
         $this->twig = $twig;
         $this->breadcrumb = new Breadcrumb();
         $this->loadBreadcrumb();
