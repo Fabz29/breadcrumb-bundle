@@ -1,7 +1,7 @@
 <ul>
     {% for link in breadcrumb.links %}
         <li>
-            <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
+            <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans({}, 'messages') }}</a>
         </li>
     {% endfor %}
 </ul>
