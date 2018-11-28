@@ -31,7 +31,7 @@ fabz29_breadcrumb:
 <ol class="breadcrumb hide-phone p-0 m-0">
     {% for link in breadcrumb.links %}
     <li class="breadcrumb-item">
-        <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans }}</a>
+        <a href="{{ path(link.route, link.routeParams ) }}">{{ link.name|trans({}, 'messages' }}</a>
     </li>
     {% endfor %}
 </ol>
