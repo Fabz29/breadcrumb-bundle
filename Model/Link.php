@@ -83,7 +83,7 @@ class Link
      *
      * @return Link
      */
-    public function setRoute(string $route): self
+    public function setRoute(?string $route): self
     {
         $this->route = $route;
 
@@ -95,7 +95,7 @@ class Link
      *
      * @return string
      */
-    public function getRoute(): string
+    public function getRoute(): ?string
     {
         return $this->route;
     }
