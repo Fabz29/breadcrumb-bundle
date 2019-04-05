@@ -54,6 +54,7 @@ How to use it
 
 ## TODO
 - Add some tests
+- Allow GET parameters not handle by routing component
 
 ## License
 
