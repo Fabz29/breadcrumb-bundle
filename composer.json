@@ -6,11 +6,11 @@
     "Fabz29 breadcrumb"
   ],
   "require": {
-    "php": ">=5.3.3",
-    "symfony/framework-bundle": "2.3.*|^2.6.0|^3.0|^4.0"
+    "php": ">=7.1",
+    "symfony/framework-bundle": "^3.0|^4.0"
   },
   "require-dev": {
-    "twig/twig": "^1.15|^2.0",
+    "twig/twig": "^2.0",
     "phpunit/phpunit": "4.*"
   },
   "suggest": {

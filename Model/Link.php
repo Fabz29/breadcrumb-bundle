@@ -19,7 +19,7 @@ class Link
     private $keyName;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $route;
 
@@ -77,9 +77,9 @@ class Link
     }
 
     /**
-     * Set route.
+     * Set keyName.
      *
-     * @param string $route
+     * @param string|null $route
      *
      * @return Link
      */
@@ -93,7 +93,7 @@ class Link
     /**
      * Get route.
      *
-     * @return string
+     * @return string|null
      */
     public function getRoute(): ?string
     {

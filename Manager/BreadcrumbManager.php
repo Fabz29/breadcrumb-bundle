@@ -4,7 +4,7 @@ namespace Fabz29\BreadcrumbBundle\Manager;
 
 use Fabz29\BreadcrumbBundle\Model\Breadcrumb;
 use Symfony\Component\HttpFoundation\Response;
-use Twig_Environment as TwigEnvironment;
+use Twig\Environment as TwigEnvironment;
 
 /**
  * Class BreadcrumbManager
@@ -80,8 +80,8 @@ class BreadcrumbManager
 
     /**
      * @param string $name
-     * @param null|string $route
-     * @param null|array $routeParams
+     * @param string|null $route
+     * @param array|null $routeParams
      * @return Breadcrumb
      */
     public function addItem(string $name, ?string $route = null, ?array $routeParams = array()): Breadcrumb
