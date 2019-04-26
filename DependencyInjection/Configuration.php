@@ -17,10 +17,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('fabz29_breadcrumb');
+        $treeBuilder = new TreeBuilder('fabz29_breadcrumb');
 
-        $rootNode->
+        $treeBuilder->getRootNode()->
 
         children()->
         scalarNode("template")->defaultValue("Fabz29BreadcrumbBundle::Breadcrumb/render.html.twig")->end()->
