@@ -11,7 +11,7 @@
   },
   "require-dev": {
     "twig/twig": "^2.0",
-    "phpunit/phpunit": "4.*"
+    "phpunit/phpunit": "8.*"
   },
   "suggest": {
     "twig/twig": "to render breadcrumbs with a twig template"

@@ -31,11 +31,11 @@ class Breadcrumb
 
     /**
      * @param string $name
-     * @param null|string $route
+     * @param string|null $route
      * @param array|null $routeParams
      * @return array
      */
-    public function addLink(string $name, ?string $route, ?array $routeParams): array
+    public function addLink(string $name, ?string $route = null, ?array $routeParams = []): array
     {
         $link = new Link();
         $link->setName($name);
