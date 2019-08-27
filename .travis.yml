@@ -54,4 +54,4 @@ install:
   - composer update --ansi --prefer-dist --no-interaction --optimize-autoloader --no-suggest --no-progress
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit Tests/
