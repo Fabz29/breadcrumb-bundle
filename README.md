@@ -1,6 +1,8 @@
 **Fabz 29 Breadcrumb Bundle** is a **Symfony Bundle** created to be the most simple unique way to manage breadcrumb. 
 You don't have several option just one and just one way to do ! That's simple isn't ?
 
+[![Build Status](https://travis-ci.com/Fabz29/breadcrumb-bundle.svg?branch=master)](https://travis-ci.com/Fabz29/breadcrumb-bundle)
+
 Installation
 ------------
 
